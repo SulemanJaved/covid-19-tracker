@@ -4,7 +4,6 @@ import { MenuItem, FormControl, Select, Card, CardContent } from "@material-ui/c
 
 // Import components
 import InfoBox from "./components/InfoBox";
-import Map from "./components/Map";
 import Table from "./components/Table";
 import {sortData} from "./components/util";
 import LineGraph from './components/LineGraph';
@@ -69,7 +68,7 @@ function App() {
     <div className="app">
       <div className='app__left'>
 
-        {/* Heade */}
+        {/* Header */}
         <div className="app__header">
           <h1>COVID-19 TRACKER</h1>
 
@@ -91,9 +90,12 @@ function App() {
           <InfoBox title="Recovered" cases={countryInfo.todayRecovered} total={countryInfo.recovered} />
           <InfoBox title="Deaths" cases={countryInfo.todayDeaths} total={countryInfo.deaths} />
         </div>
-        <div>
-          {/* Map */}
-          <Map />
+        <div className="app__graph">
+          <br />
+          <br />
+          {/* Graph */}
+          <h3>New Cases Graph</h3>
+          <LineGraph casesType="cases"/>
         </div>
       </div>
 
@@ -101,10 +103,6 @@ function App() {
         <CardContent>
           <h3>Live Cases Table (Countrywise) </h3>
           <Table countries={tableData}></Table>
-            <br />
-           {/* Graph */}
-          <h3>New Cases Chart (Globally)</h3>
-          <LineGraph casesType="cases"/>
         </CardContent>
       </Card>
     </div>
